@@ -1,15 +1,15 @@
 import Express from "express";
+import { loginUser,registerUser,logout } from "../controllers/auth";
 
 const authRouter= Express.Router()
 
 
 
-authRouter.get("/test",(req,res)=>{
+authRouter.post("/signup",registerUser)
 
-    res.send("Test Api Route Working Fine")
-})
+authRouter.post("/login",loginUser)
 
-
+authRouter.post("/logout",logout)
 
 
 
