@@ -1,12 +1,13 @@
 
 
 import { Request,Response } from "express"
+import User  from '../schemas/user'
 
-const registerUser = (req : Request, res:Response) => {
+const registerUser = async (req : Request, res:Response) => {
     const{name,email,password}= req.body
     //validate email if it exists or not
        
-
+const userExists= await User.findOne({email})
 
 
     //if exists raise error already exists 

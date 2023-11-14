@@ -8,8 +8,8 @@ const userSchema = new mongoose.Schema(
         email: String,
         authentication: {
 
-            password: { type: String,select:false },
-            access_tpoken: {type: String ,select:false}
+            password: { type: String, select: false },
+            access_tpoken: { type: String, select: false }
         }
 
 
@@ -17,6 +17,6 @@ const userSchema = new mongoose.Schema(
 );
 
 
-const User=mongoose.model("User",userSchema)
+const User = mongoose.model("User", userSchema)
 
 export default User
