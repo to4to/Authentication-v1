@@ -1,19 +1,21 @@
 
 
-import { Request,Response } from "express"
-import User  from '../schemas/user'
+import { Request, Response } from "express"
+import User from '../schemas/user'
 
-const registerUser = async (req : Request, res:Response) => {
-    const{name,email,password}= req.body
+const registerUser = async (req: Request, res: Response) => {
+    const { name, email, password } = req.body
     //validate email if it exists or not
-       
-const userExists= await User.findOne({email})
+
+    const userExists = await User.findOne({ email })
 
 
     //if exists raise error already exists 
-
-
-
+    if (userExists) {
+        return res
+        .status(400)
+        .send({ message: "User with email exists.Provide Another Email " })
+    }
 
     //encrypt password
 
@@ -31,39 +33,39 @@ const userExists= await User.findOne({email})
 }
 
 
-const loginUser = (req:Request, res:Response) => {
+const loginUser = (req: Request, res: Response) => {
 
 
-const{email,password}=req.body
+    const { email, password } = req.body
 
 
-//valid email or not
-
-
-
-//password valid or not
-
-
-//generate access token
+    //valid email or not
 
 
 
-//set access token in cookie 
+    //password valid or not
+
+
+    //generate access token
 
 
 
-// send status code 200 with user info  along with access token
+    //set access token in cookie 
+
+
+
+    // send status code 200 with user info  along with access token
 
 
 
 
 }
 
-const logout = (req:Request, res:Response) => {
-//delete cookie or make it empty
+const logout = (req: Request, res: Response) => {
+    //delete cookie or make it empty
 
 
-//send status code 200 with message logout
+    //send status code 200 with message logout
 
 }
 
